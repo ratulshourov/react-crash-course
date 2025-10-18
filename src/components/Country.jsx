@@ -1,9 +1,12 @@
 import React, { Suspense, useState } from 'react';
 
-function Country({country}) {
+function Country({country ,handleVisitedCountries}) {
+    //console.log(handleVisitedCountries);
+    
     const [visited, setVisited] = useState(false);
     const handleVisited=()=>{
         setVisited(!visited);
+        handleVisitedCountries();
     }
     const image={
         width:"50px",

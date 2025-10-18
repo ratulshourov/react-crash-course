@@ -1,8 +1,12 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import Country from './Country';
 
 function Countries({countries}) {
     const countryData=use(countries);
+    const [visitedCountries,setVisitedCountries]=useState([]);
+    const  handleVisitedCountries=()=>{
+        console.log("visited countries");
+    }
     console.log(countryData);
     const main={
         display:"grid",
@@ -12,7 +16,7 @@ function Countries({countries}) {
     return (
         <div style={main}>
             {
-                countryData.map(country=><Country country={country}></Country>)
+                countryData.map(country=><Country handleVisitedCountries={handleVisitedCountries} country={country}></Country>)
             }
         </div>
     );
