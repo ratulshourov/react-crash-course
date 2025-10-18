@@ -4,8 +4,8 @@ import Country from './Country';
 function Countries({countries}) {
     const countryData=use(countries);
     const [visitedCountries,setVisitedCountries]=useState([]);
-    const  handleVisitedCountries=()=>{
-        console.log("visited countries");
+    const  handleVisitedCountries=(country)=>{
+        console.log("visited countries",country);
     }
     console.log(countryData);
     const main={

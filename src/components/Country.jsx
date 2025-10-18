@@ -6,7 +6,7 @@ function Country({country ,handleVisitedCountries}) {
     const [visited, setVisited] = useState(false);
     const handleVisited=()=>{
         setVisited(!visited);
-        handleVisitedCountries();
+        handleVisitedCountries(country);
     }
     const image={
         width:"50px",
