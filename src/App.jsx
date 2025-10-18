@@ -5,6 +5,7 @@ import Player from './Player'
 import User from './User'
 import Posts from './Posts'
 import Countries from './components/Countries';
+import { add } from './utils/math'
 
 const fetchUsers=fetch('https://jsonplaceholder.typicode.com/users')
                   .then(res =>res.json());
@@ -21,10 +22,14 @@ const countries=async()=>{
   const res=await fetch('https://api.sampleapis.com/countries/countries');
   return res.json();
 }
+console.log(add(3,2));
+
 function App() {
   const friends =allfriends();
   const postPromise=allpost();
   const countryPromise=countries();
+  
+  
   return (
     <>
       <div>
