@@ -1,9 +1,13 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState } from 'react';
 
 function Country({country}) {
+    const [visited, setVisited] = useState(false);
+    const handleVisited=()=>{
+        setVisited(!visited);
+    }
     const image={
         width:"50px",
-        height:"50px"
+        height:"auto"
     }
     const main={
         border:"2px solid red",
@@ -12,9 +16,15 @@ function Country({country}) {
         margin:"10px"
     }
     return (
-        <div style={main}>
-           <p>Name:{country.name}</p> 
-           <img src={country.media.flag} alt="No Image found" style={image}/>
+        /**below class name used while one stat */
+        <div className={` ${visited&& "country-vistited"}`} style={main}>
+            <img src={country.media.flag} alt="No Image found" style={image}/>
+           <p> Name:{country.name}</p> 
+          
+           <button onClick={handleVisited}>
+            {visited?"visited":"Not Visited"}
+            </button>
+        
         </div>
     );
 }
