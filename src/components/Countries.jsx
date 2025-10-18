@@ -6,6 +6,9 @@ function Countries({countries}) {
     const [visitedCountries,setVisitedCountries]=useState([]);
     const  handleVisitedCountries=(country)=>{
         console.log("visited countries",country);
+        const newVisitedCountries=[...visitedCountries,country];
+        setVisitedCountries(newVisitedCountries);
+        console.log(visitedCountries);
     }
     console.log(countryData);
     const main={
@@ -14,10 +17,13 @@ function Countries({countries}) {
         gap:"10px"
     }
     return (
+        <div>
+            <p>visited countries:{visitedCountries.length}</p>
         <div style={main}>
             {
                 countryData.map(country=><Country handleVisitedCountries={handleVisitedCountries} country={country}></Country>)
             }
+        </div>
         </div>
     );
 }
