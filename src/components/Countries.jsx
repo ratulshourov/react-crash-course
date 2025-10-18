@@ -19,6 +19,11 @@ function Countries({countries}) {
     return (
         <div>
             <p>visited countries:{visitedCountries.length}</p>
+            <ol>
+                {
+                    visitedCountries.map(singleVisitCountry=> <li>{singleVisitCountry.name}</li>)
+                }
+            </ol>
         <div style={main}>
             {
                 countryData.map(country=><Country handleVisitedCountries={handleVisitedCountries} country={country}></Country>)
