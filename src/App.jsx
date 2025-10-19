@@ -6,6 +6,7 @@ import User from './User'
 import Posts from './Posts'
 import Countries from './components/Countries';
 import { add } from './utils/math'
+import Products from './components/product/Products'
 
 const fetchUsers=fetch('https://jsonplaceholder.typicode.com/users')
                   .then(res =>res.json());
@@ -23,7 +24,9 @@ const countries=async()=>{
   return res.json();
 }
 console.log(add(3,2));
-
+const products=fetch('https://dummyjson.com/products?limit=6')
+  .then(res => res.json())
+  .then(data => data.products);
 function App() {
   const friends =allfriends();
   const postPromise=allpost();
@@ -33,6 +36,9 @@ function App() {
   return (
     <>
       <div>
+        <Suspense fallback={<h1>All Produts...</h1>}>
+          <Products products={products}></Products>
+        </Suspense>
         <Suspense fallback={<h1>All Countries...</h1>}>
           <Countries countries={countryPromise}></Countries>
         </Suspense>
